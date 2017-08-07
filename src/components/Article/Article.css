@@ -1,0 +1,6 @@
+.Article {
+  border: 1px solid red;
+  margin-bottom: 8px;
+  font-size: 16px; }
+  .Article:last-child {
+    margin-bottom: 0; }

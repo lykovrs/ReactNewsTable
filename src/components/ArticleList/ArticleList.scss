@@ -1,0 +1,13 @@
+@import "../../../node_modules/flexiblegs-scss/flexiblegs-scss";
+.ArticleList {
+    // @include wrap;
+    background: #cfc;
+    &__body {
+        @include wrap; //  @include wrap('table')
+    }
+    &__item {
+        @include col;
+        @include col(1, 2);
+        overflow: hidden;
+    }
+}
