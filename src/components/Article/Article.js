@@ -43,8 +43,8 @@ export default class Article extends Component {
             return false;
         
         return (
-            <section>
-                <p>{article.description}</p>
+            <section className="Article__body">
+                <a href={article.url}>{article.description}</a>
                 <img src={article.urlToImage} alt=""/>
             </section>
         )

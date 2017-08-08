@@ -1,9 +1,8 @@
 @import "../../../node_modules/flexiblegs-scss/flexiblegs-scss";
 .ArticleList {
-    // @include wrap;
-    background: #cfc;
     &__body {
-        @include wrap; //  @include wrap('table')
+        @include wrap;
+        @include wrap("gutter", 24);
     }
     &__item {
         @include col;

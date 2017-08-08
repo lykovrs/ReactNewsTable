@@ -1,10 +1,20 @@
 .Article {
-    border: 1px solid red;
+    // border: 1px solid red;
     margin-bottom: 8px;
     font-size: 16px;
-    
+    position: relative;
 
     &:last-child {
         margin-bottom: 0;
     } 
+
+    &__body {
+        // position: absolute;
+        // top: -100%;
+        // left: 0;
+
+        img {
+            max-width: 100%;
+        }
+    }
 }
