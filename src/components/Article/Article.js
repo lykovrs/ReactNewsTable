@@ -3,11 +3,22 @@ import PropTypes from 'prop-types';
 import './Article.css';
 
 export default class Article extends Component {
+    static propTypes = {
+        article: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            urlToImage: PropTypes.string.isRequired,
+            publishedAt: PropTypes.string.isRequired
+        })
+    }
+
     constructor(props) {
         super(props)
-        // Если состояние статьи определяется из вне, берем это значение
+
         this.state = {
-            isOpen: this.props.defaultOpen
+            isOpen: false
         }
     }
 
@@ -32,6 +43,7 @@ export default class Article extends Component {
         })
     }
 
+    
     /**
      * Получаем тело статьи в зависимости от текущего стейта
      *
@@ -50,15 +62,4 @@ export default class Article extends Component {
         )
 
     }
-}
-
-Article.propTypes = {
-    article: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        author: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-        urlToImage: PropTypes.string.isRequired,
-        publishedAt: PropTypes.string.isRequired
-    })
 }
