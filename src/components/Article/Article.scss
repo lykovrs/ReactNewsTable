@@ -5,4 +5,8 @@
     margin-bottom: 8px;
     padding: 8px;
     &__body {}
+
+    &__header {
+        cursor: pointer;
+    }
 }

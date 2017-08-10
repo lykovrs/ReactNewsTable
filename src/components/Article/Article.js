@@ -14,47 +14,29 @@ export default class Article extends Component {
             word_count: PropTypes.number.isRequired
         }),
 
-        isOpen: PropTypes.bool
-    }
-
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            isOpen: false
-        }
+        isOpen: PropTypes.bool,
+        toggleHandler: PropTypes.func
     }
 
     render() {
-        const {article} = this.props
+        const {article, toggleHandler, isOpen} = this.props
         return (
             <div className="Article">
-                <h3 onClick={this.toggleArticle}>{article.headline.main}</h3>
-                {this.getBody()}
+                <h3 className="Article__header" onClick={toggleHandler}>{article.headline.main}</h3>
+                {this.getBody(isOpen)}
             </div>
 
         );
     }
-    /**
-     * Открываем/прячем статью
-     *
-     * @memberof Article
-     */
-    toggleArticle = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
-
 
     /**
      * Получаем тело статьи в зависимости от текущего стейта
      *
      * @memberof Article
      */
-    getBody = () => {
+    getBody = (isOpen) => {
         const {article} = this.props
-        if (!this.state.isOpen) 
+        if (!isOpen) 
             return false;
         
         return (

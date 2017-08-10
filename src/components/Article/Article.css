@@ -4,3 +4,5 @@
   border: 1px solid gray;
   margin-bottom: 8px;
   padding: 8px; }
+  .Article__header {
+    cursor: pointer; }

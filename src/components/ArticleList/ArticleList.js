@@ -8,30 +8,48 @@ export default class ArticleList extends Component {
         }
 
         render() {
-                // const articles = articles;
-                console.log(articles)
 
                 const articleElements = articles.map((article) => {
                         return <div key={article._id} className="ArticleList__item">
-                                
-                                {<Article article={article} isOpent="false"/>}
-                                </div>
+
+                                {< Article
+                                article = {
+                                        article
+                                }
+                                isOpen = {
+                                        article._id === this.state.openArticleId
+                                }
+                                toggleHandler = {
+                                        this.toggleOpenArticle(article._id)
+                                }
+                                />}
+                        </div>
                 })
 
                 return (
                         <div className="ArticleList">
                                 <h2 className="ArticleList__header">ArticleList</h2>
                                 <div className="ArticleList__body">
-                                        {articleElements} 
+                                        {articleElements}
                                 </div>
                         </div>
 
                 );
         }
+        /**
+         * Если кликаем по заголовку новости, 
+         * остальные новости закрываются, 
+         * при двойном клике новости меняет состояние
+         * 
+         * @memberof ArticleList
+         */
+        toggleOpenArticle = openArticleId => ev => {
+                ev && ev.preventDefault()
+                if (openArticleId === this.state.openArticleId) {
+                        this.setState({openArticleId: null})
+                } else {
+                        this.setState({openArticleId})
+                }
 
-        // toggleOpenArticle = (id) => {
-        //         this.setState({
-        //                 openArticleId = id
-        //         })
-        // }
+        }
 }
