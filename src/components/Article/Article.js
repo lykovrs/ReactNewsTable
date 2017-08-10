@@ -5,13 +5,16 @@ import './Article.css';
 export default class Article extends Component {
     static propTypes = {
         article: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-            urlToImage: PropTypes.string.isRequired,
-            publishedAt: PropTypes.string.isRequired
-        })
+            headline: PropTypes.shape({
+              main: PropTypes.string.isRequired  
+            }),
+            web_url: PropTypes.string.isRequired,
+            source: PropTypes.string.isRequired,
+            pub_date: PropTypes.string.isRequired,
+            word_count: PropTypes.number.isRequired
+        }),
+
+        isOpen: PropTypes.bool
     }
 
     constructor(props) {
@@ -26,7 +29,7 @@ export default class Article extends Component {
         const {article} = this.props
         return (
             <div className="Article">
-                <h3 onClick={this.toggleArticle}>{article.title}</h3>
+                <h3 onClick={this.toggleArticle}>{article.headline.main}</h3>
                 {this.getBody()}
             </div>
 
@@ -43,7 +46,7 @@ export default class Article extends Component {
         })
     }
 
-    
+
     /**
      * Получаем тело статьи в зависимости от текущего стейта
      *
@@ -56,8 +59,9 @@ export default class Article extends Component {
         
         return (
             <section className="Article__body">
-                <a href={article.url}>{article.description}</a>
-                <img src={article.urlToImage} alt=""/>
+                <a href={article.web_url}>{article.source}</a>
+                <p>Public date: {article.pub_date}</p>
+                <p>Word count: {article.word_count}</p>
             </section>
         )
 

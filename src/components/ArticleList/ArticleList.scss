@@ -3,10 +3,11 @@
     &__body {
         @include wrap;
         @include wrap("gutter", 24);
+         @include wrap("outside", 24);
     }
     &__item {
         @include col;
-        @include col(1, 2);
+        @include col(1, 1);
         overflow: hidden;
     }
 }
