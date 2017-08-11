@@ -15,7 +15,7 @@ class MoreInfo extends Component {
     }
 
     render() {
-        const {info, isOpen} = this.props;
+        const {isOpen} = this.props;
         return (
             <div className="MoreInfo">
                 <button onClick={this.changeState}>{this.state.buttonText}</button>
