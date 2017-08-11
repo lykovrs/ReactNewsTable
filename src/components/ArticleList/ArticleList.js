@@ -37,10 +37,10 @@ export default class ArticleList extends Component {
                 );
         }
         /**
-         * Если кликаем по заголовку новости, 
-         * остальные новости закрываются, 
+         * Если кликаем по заголовку новости,
+         * остальные новости закрываются,
          * при двойном клике новости меняет состояние
-         * 
+         *
          * @memberof ArticleList
          */
         toggleOpenArticle = openArticleId => ev => {
