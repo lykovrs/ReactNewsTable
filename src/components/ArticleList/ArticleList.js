@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import Article from '../Article/Article';
 import './ArticleList.css';
-import {articles} from '../../data'
-export default class ArticleList extends Component {
-        state = {
-                openArticleId: null
-        }
+import {articles} from '../../data';
+import accordion from '../../decorators/accordion';
+class ArticleList extends Component {
 
         render() {
 
@@ -16,12 +14,16 @@ export default class ArticleList extends Component {
                                 article = {
                                         article
                                 }
+
                                 isOpen = {
-                                        article._id === this.state.openArticleId
+                                        article._id === this.props.openId
                                 }
                                 toggleHandler = {
-                                        this.toggleOpenArticle(article._id)
+                                        this
+                                                .props
+                                                .toggleHandler(article._id)
                                 }
+
                                 />}
                         </div>
                 })
@@ -36,20 +38,7 @@ export default class ArticleList extends Component {
 
                 );
         }
-        /**
-         * Если кликаем по заголовку новости,
-         * остальные новости закрываются,
-         * при двойном клике новости меняет состояние
-         *
-         * @memberof ArticleList
-         */
-        toggleOpenArticle = openArticleId => ev => {
-                ev && ev.preventDefault()
-                if (openArticleId === this.state.openArticleId) {
-                        this.setState({openArticleId: null})
-                } else {
-                        this.setState({openArticleId})
-                }
 
-        }
 }
+
+export default accordion(ArticleList);
