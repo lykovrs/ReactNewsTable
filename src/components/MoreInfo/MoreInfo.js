@@ -15,10 +15,10 @@ class MoreInfo extends Component {
     }
 
     render() {
-        const {info, clickHandler, isOpen} = this.props;
+        const {info, isOpen} = this.props;
         return (
             <div className="MoreInfo">
-                <button onClick={clickHandler}>{this.state.buttonText}</button>
+                <button onClick={this.changeState}>{this.state.buttonText}</button>
                 {this.getBody(isOpen)}
             </div>
         );
@@ -30,16 +30,27 @@ class MoreInfo extends Component {
      * @memberof MoreInfo
      */
     getBody = (isOpen) => {
+        const {info} = this.props;
         if (!isOpen) 
             return false;
         
         return (
             <section className="MoreInfo__body">
-                <p>Word count: {this.props.info.word_count}</p>
-                <p>Type: {this.props.info.type_of_material}</p>
+                <p>Word count: {info.word_count}</p>
+                <p>Type: {info.type_of_material}</p>
             </section>
         )
 
+    }
+
+    changeState = () => {
+        const {clickHandler, isOpen} = this.props;
+        clickHandler();
+        if (isOpen) {
+            this.setState({buttonText: 'Show more information'})
+        } else {
+            this.setState({buttonText: 'Hide more information'})
+        }
     }
 }
 
