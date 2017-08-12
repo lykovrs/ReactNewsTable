@@ -1,3 +1,4 @@
+/*! Flexible Grid System 5.5.3 | Scss | MIT License | flexible.gs */
 .App {
   text-align: center; }
   .App__logo {
@@ -8,8 +9,38 @@
     height: 150px;
     padding: 20px;
     color: white; }
-  .App__intro {
-    font-size: large; }
+  .App__intro-wrap {
+    display: block;
+    width: 100%;
+    font-size: 0;
+    letter-spacing: 0;
+    text-align: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: calc(100% + 24px);
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0px;
+    padding-right: 0px; }
+    .App__intro-wrap > * {
+      display: inline-block;
+      vertical-align: top; }
+    .App__intro-wrap > * {
+      padding-left: 12px;
+      padding-right: 12px; }
+  .App__intro-col {
+    min-height: 1px;
+    font-size: 1rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%; }
 
 @keyframes App-logo-spin {
   from {

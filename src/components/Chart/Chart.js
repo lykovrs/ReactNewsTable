@@ -12,15 +12,16 @@ export default class Chart extends Component {
     render() {
         return (
             <div className="Chart">
+                <h2 className="Chart__header">Dataset</h2>
                 <canvas ref={this.getContainerRef}></canvas>
             </div>
 
         );
     }
 
-    componentWillRecieveProps() {
-        // TODO: реализовать обновление данных
-    }
+    // componentWillRecieveProps() {
+    //     // TODO: реализовать обновление данных
+    // }
 
     getContainerRef = (ref) => {
         const items = {};

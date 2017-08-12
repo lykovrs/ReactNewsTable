@@ -13,15 +13,14 @@ class App extends Component {
           <img src={logo} className="App__logo" alt="logo"/>
           <h2>Welcome to React News Table</h2>
         </div>
-        <p className="App__intro">
-          To get started, edit
-          <code>src/App.js</code>
-          and save to reload.
-
-        </p>
-        <Chart/>
-        <ArticleList/>
-
+        <div className="App__intro-wrap">
+          <div className="App__intro-col">
+            <ArticleList/>
+          </div>
+          <div className="App__intro-col">
+            <Chart/>
+          </div>
+        </div>
       </div>
     );
   }

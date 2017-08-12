@@ -1,3 +1,4 @@
+@import "../node_modules/flexiblegs-scss/flexiblegs-scss";
 .App {
   text-align: center;
   &__logo {
@@ -10,8 +11,14 @@
     padding: 20px;
     color: white;
   }
-  &__intro {
-    font-size: large;
+  &__intro-wrap {
+    @include wrap;
+    @include wrap("gutter", 24);
+    @include wrap("outside", 0);
+  }
+  &__intro-col {
+    @include col;
+    @include col(1, 2);
   }
 }
 

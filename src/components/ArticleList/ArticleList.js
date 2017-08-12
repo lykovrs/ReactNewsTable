@@ -30,7 +30,7 @@ class ArticleList extends Component {
 
                 return (
                         <div className="ArticleList">
-                                <h2 className="ArticleList__header">ArticleList</h2>
+                                <h2 className="ArticleList__header">Articles</h2>
                                 <div className="ArticleList__body">
                                         {articleElements}
                                 </div>
