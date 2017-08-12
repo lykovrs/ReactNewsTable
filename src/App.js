@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Chart from './components/Chart/Chart'
 
 import ArticleList from './components/ArticleList/ArticleList';
 
@@ -18,7 +19,9 @@ class App extends Component {
           and save to reload.
 
         </p>
+        <Chart/>
         <ArticleList/>
+
       </div>
     );
   }
