@@ -5,7 +5,7 @@
         @include wrap("gutter", 24);
         @include wrap("outside", 0);
         border: 1px solid gray;
-        height: calc(100vh - 273px);
+        height: calc(100vh - 309px);
         overflow: auto;
         padding: 6px 0;
     }
@@ -15,5 +15,9 @@
     }
     &__header {
         text-align: center;
+    }
+
+     &__select {
+       margin-bottom: 6px;
     }
 }

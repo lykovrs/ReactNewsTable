@@ -26,6 +26,17 @@ export default class Article extends Component {
 
         );
     }
+    /**
+     * Оптимизация перестроения компонена
+     *
+     * @param {any} nextProps
+     * @param {any} nextState
+     * @returns
+     * @memberof Article
+     */
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.isOpen !== nextProps.isOpen;
+    }
 
     /**
      * Получаем тело статьи в зависимости от текущего стейта

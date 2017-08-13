@@ -7,7 +7,8 @@
     "flexiblegs-scss": "^5.5.3",
     "node-sass-chokidar": "0.0.3",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-select": "^1.0.0-rc.5"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"

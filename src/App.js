@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Chart from './components/Chart/Chart'
+import {articles} from './data';
+import Chart from './components/Chart/Chart';
 
 import ArticleList from './components/ArticleList/ArticleList';
 
 class App extends Component {
   render() {
+
     return (
       <div className="App">
         <div className="App__header">
@@ -15,10 +17,11 @@ class App extends Component {
         </div>
         <div className="App__intro-wrap">
           <div className="App__intro-col">
-            <ArticleList/>
+            <ArticleList articles={articles}/>
           </div>
           <div className="App__intro-col">
-            <Chart/>
+
+            <Chart articles={articles}/>
           </div>
         </div>
       </div>

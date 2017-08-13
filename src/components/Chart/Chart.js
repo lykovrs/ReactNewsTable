@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ChartLib from 'chart.js';
 import './Chart.css';
-import {articles} from '../../data';
 
 export default class Chart extends Component {
     static propTypes = {
-        articles: PropTypes.array
+        articles: PropTypes.array.isRequired
     }
 
     render() {
+        const {articles} = this.props;
         return (
             <div className="Chart">
                 <h2 className="Chart__header">Dataset</h2>
@@ -19,11 +19,10 @@ export default class Chart extends Component {
         );
     }
 
-    // componentWillRecieveProps() {
-    //     // TODO: реализовать обновление данных
-    // }
+    // componentWillRecieveProps() {  TODO: реализовать обновление данных }
 
     getContainerRef = (ref) => {
+        const {articles} = this.props;
         const items = {};
         const result = {
             labels: [],

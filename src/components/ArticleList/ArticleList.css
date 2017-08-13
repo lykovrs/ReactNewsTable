@@ -19,7 +19,7 @@
   padding-left: 0px;
   padding-right: 0px;
   border: 1px solid gray;
-  height: calc(100vh - 273px);
+  height: calc(100vh - 309px);
   overflow: auto;
   padding: 6px 0; }
   .ArticleList__body > * {
@@ -39,3 +39,6 @@
 
 .ArticleList__header {
   text-align: center; }
+
+.ArticleList__select {
+  margin-bottom: 6px; }
