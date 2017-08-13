@@ -7,6 +7,7 @@ export default class Chart extends Component {
     static propTypes = {
         articles: PropTypes.array.isRequired
     }
+    
 
     render() {
         const {articles} = this.props;
