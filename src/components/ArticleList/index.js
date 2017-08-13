@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
-import Article from '../Article/Article';
-import './ArticleList.css';
+import Article from '../Article/index';
+import './style.css';
 import Select from 'react-select';
 
 import accordion from '../../decorators/accordion';

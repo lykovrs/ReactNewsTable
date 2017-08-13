@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {articles} from './data';
-import Chart from './components/Chart/Chart';
+import Chart from './components/Chart/index';
 
-import ArticleList from './components/ArticleList/ArticleList';
+import ArticleList from './components/ArticleList/index';
 
 class App extends Component {
   render() {

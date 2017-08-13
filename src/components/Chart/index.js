@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ChartLib from 'chart.js';
-import './Chart.css';
+import './style.css';
 
 export default class Chart extends Component {
     static propTypes = {
