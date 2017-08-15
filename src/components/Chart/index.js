@@ -10,7 +10,6 @@ export default class Chart extends Component {
     
 
     render() {
-        const {articles} = this.props;
         return (
             <div className="Chart">
                 <h2 className="Chart__header">Dataset</h2>

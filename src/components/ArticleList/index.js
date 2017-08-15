@@ -1,10 +1,15 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Article from '../Article/index';
 import './style.css';
 import Select from 'react-select';
 
 import accordion from '../../decorators/accordion';
 class ArticleList extends Component {
+        static propTypes = {
+                articles: PropTypes.array
+        }
+
         state = {
                 selection: null
         }
@@ -53,7 +58,7 @@ class ArticleList extends Component {
                                                 options={options}
                                                 onChange={this.selectValue}/>
                                 </div>
-
+                                
                                 <div className="ArticleList__body">
                                         {articleElements}
                                 </div>
