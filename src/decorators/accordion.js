@@ -21,5 +21,6 @@ export default(Component) => class Accordion extends Component {
             this.setState({openId})
         }
 
+        
     }
 }

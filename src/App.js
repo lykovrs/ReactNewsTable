@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'react-day-picker/lib/style.css';
 import {articles} from './data';
 import Chart from './components/Chart/index';
+import FormChanger from './components/FormChanger/index';
 
 import ArticleList from './components/ArticleList/index';
 
@@ -19,8 +21,9 @@ class App extends Component {
           <div className="App__intro-col">
             <ArticleList articles={articles}/>
           </div>
-          <div className="App__intro-col">
 
+          <div className="App__intro-col">
+            <FormChanger/>
             <Chart articles={articles}/>
           </div>
         </div>

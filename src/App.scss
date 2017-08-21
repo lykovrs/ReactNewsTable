@@ -19,7 +19,11 @@
   }
   &__intro-col {
     @include col;
-    @include col(1, 2);
+    @include col(2, 3);
+
+    &:last-child {
+      @include col(1, 3);
+    }
   }
 }
 

@@ -18,10 +18,13 @@ export default class Article extends Component {
 
     render() {
         const {article, toggleHandler, isOpen} = this.props
+
         return (
             <div className="Article">
                 <h3 className="Article__header" onClick={toggleHandler}>{article.headline.main}</h3>
                 {this.getBody(isOpen)}
+                
+
             </div>
 
         );

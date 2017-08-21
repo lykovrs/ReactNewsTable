@@ -1,2 +1,4 @@
-.Chart__header {
-  text-align: center; }
+.Chart {
+  width: 300px; }
+  .Chart__header {
+    text-align: center; }
