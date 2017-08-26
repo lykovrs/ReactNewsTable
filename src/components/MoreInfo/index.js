@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import toggleOpen from '../../decorators/toggleOpen';
+import AddInfo from '../AddInfo/index';
 
 class MoreInfo extends Component {
     static propTypes = {
@@ -38,6 +39,7 @@ class MoreInfo extends Component {
             <section className="MoreInfo__body">
                 <p>Word count: {info.word_count}</p>
                 <p>Type: {info.type_of_material}</p>
+                <AddInfo />
             </section>
         )
 

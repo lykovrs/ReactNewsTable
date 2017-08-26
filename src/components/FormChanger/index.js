@@ -20,7 +20,7 @@ export default class FormChanger extends Component {
             <div className="FormChanger">
                 <DayPicker
                     onDayClick={this.handleDayClick}
-                    selectedDays={this.state.selectedDay}/>
+                    selectedDays={new Date(this.state.selectedDay)}/>
                 <p>{selectedDay}</p>
             </div>
         );
