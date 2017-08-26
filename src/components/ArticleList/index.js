@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Article from '../Article/index';
+import Article from '../Article';
 import './style.css';
 import Select from 'react-select';
 

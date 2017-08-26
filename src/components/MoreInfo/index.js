@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import toggleOpen from '../../decorators/toggleOpen';
-import AddInfo from '../AddInfo/index';
+import AddInfo from '../AddInfo';
 
 class MoreInfo extends Component {
     static propTypes = {

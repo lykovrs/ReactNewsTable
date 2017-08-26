@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
-import MoreInfo from '../MoreInfo/index';
+import MoreInfo from '../MoreInfo';
 
 export default class Article extends Component {
     static propTypes = {
