@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import './style.css';
 import MoreInfo from '../MoreInfo';
 
-export default class Article extends Component {
+class Article extends Component {
     static propTypes = {
         article: PropTypes.shape({
             headline: PropTypes.shape({main: PropTypes.string.isRequired}),
             web_url: PropTypes.string.isRequired,
             source: PropTypes.string.isRequired,
-            pub_date: PropTypes.string.isRequired
+            pub_date: PropTypes.string.isRequired,
+            _id: PropTypes.string.isRequired
         }),
-
+        onDelete: PropTypes.func,
         isOpen: PropTypes.bool,
         toggleHandler: PropTypes.func
     }
@@ -22,6 +23,7 @@ export default class Article extends Component {
         return (
             <div className="Article">
                 <h3 className="Article__header" onClick={toggleHandler}>{article.headline.main}</h3>
+                <button onClick={this.props.onDelete}>Delete item</button>
                 {this.getBody(isOpen)}
                 
 
@@ -61,4 +63,6 @@ export default class Article extends Component {
         )
 
     }
-}
+} 
+
+export default Article

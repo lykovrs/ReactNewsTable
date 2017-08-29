@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {increment} from '../../AC'
 
@@ -14,7 +13,7 @@ class Counter extends Component {
         return (
             <div>
                 {this.props.count}
-                <a href="#" onClick={this.handleIncrement}>Increment</a>
+                <button onClick={this.handleIncrement}>Increment</button>
             </div>
         );
     }

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Article from '../Article';
 import './style.css';
 import Select from 'react-select';
+import {connect} from 'react-redux';
+import {deleteArticle, sortArticles, clearSorting} from '../../AC';
 
 import accordion from '../../decorators/accordion';
 class ArticleList extends Component {
@@ -15,17 +17,43 @@ class ArticleList extends Component {
         }
 
         selectValue = (val) => {
-                this.setState({
-                        selection: val
-                })
+                this.setState({selection: val})
+
+                val
+                        ? this
+                                .props
+                                .sortArticles(val.value)
+                        : this
+                                .props
+                                .clearSorting()
+
+        }
+
+        /**
+         * Удаляет статью
+         *
+         * @memberof Article
+         */
+        deleteArticle = id => action => {
+                this
+                        .props
+                        .deleteArticle(id)
         }
 
         render() {
                 const {articles} = this.props;
-                const options = articles.map(article => {
-                        return {value: article._id, label: article.snippet}
-                })
+                const articleTypes = {};
+                articles.forEach(article => {
+                        articleTypes[article.type_of_material] = null
+                });
 
+                const options = [];
+
+                for (var key in articleTypes) {
+                        if (articleTypes.hasOwnProperty(key)) {
+                                options.push({label: key, value: key});
+                        }
+                }
 
                 const articleElements = articles.map((article) => {
                         return <div key={article._id} className="ArticleList__item">
@@ -33,6 +61,10 @@ class ArticleList extends Component {
                                 {< Article
                                 article = {
                                         article
+                                }
+
+                                onDelete = {
+                                        this.deleteArticle(article._id)
                                 }
 
                                 isOpen = {
@@ -58,7 +90,7 @@ class ArticleList extends Component {
                                                 options={options}
                                                 onChange={this.selectValue}/>
                                 </div>
-                                
+
                                 <div className="ArticleList__body">
                                         {articleElements}
                                 </div>
@@ -69,4 +101,4 @@ class ArticleList extends Component {
 
 }
 
-export default accordion(ArticleList);
+export default connect(null, {deleteArticle, sortArticles, clearSorting})(accordion(ArticleList))

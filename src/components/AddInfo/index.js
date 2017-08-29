@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 export default class AddInfo extends Component {
-    // static propTypes = {
-    //     prop: PropTypes
-    // }
-
     state = {
         name: "",
         text: ""
