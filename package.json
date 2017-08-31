@@ -5,10 +5,13 @@
   "dependencies": {
     "chart.js": "^2.6.0",
     "flexiblegs-scss": "^5.5.3",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "node-sass-chokidar": "0.0.3",
     "react": "^15.6.1",
     "react-day-picker": "^6.1.0",
     "react-dom": "^15.6.1",
+    "react-moment": "^0.6.5",
     "react-redux": "^5.0.6",
     "react-select": "^1.0.0-rc.5",
     "react-transition-group": "^2.2.0",

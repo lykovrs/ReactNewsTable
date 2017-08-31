@@ -1,4 +1,5 @@
 .Chart {
-  width: 300px; }
+  width: 300px;
+  margin: auto; }
   .Chart__header {
     text-align: center; }

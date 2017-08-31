@@ -8,6 +8,9 @@ import store from './store';
 import Counter from './components/Counter';
 import ArticleList from './components/ArticleList';
 import {connect} from 'react-redux';
+import Moment from 'react-moment';
+// import 'moment-timezone';
+
 
 class App extends Component {
   render() {
@@ -25,9 +28,9 @@ class App extends Component {
           </div>
 
           <div className="App__intro-col">
-            <Counter/>
             <FormChanger/>
             <Chart articles={articles}/>
+            <Counter/>
           </div>
         </div>
       </div>
