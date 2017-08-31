@@ -8,97 +8,99 @@ import {deleteArticle, sortArticles, clearSorting} from '../../AC';
 
 import accordion from '../../decorators/accordion';
 class ArticleList extends Component {
-        static propTypes = {
-                articles: PropTypes.array
-        }
+  static propTypes = {
+    articles: PropTypes.array
+  }
 
-        state = {
-                selection: null
-        }
+  state = {
+    selection: null
+  }
 
-        selectValue = (val) => {
-                this.setState({selection: val})
+  selectValue = (val) => {
+    this.setState({selection: val})
 
-                val
-                        ? this
-                                .props
-                                .sortArticles(val.value)
-                        : this
-                                .props
-                                .clearSorting()
+    val
+      ? this
+        .props
+        .sortArticles(val.value)
+      : this
+        .props
+        .clearSorting()
 
-        }
+  }
 
-        /**
+  /**
          * Удаляет статью
          *
          * @memberof Article
          */
-        deleteArticle = id => action => {
-                this
-                        .props
-                        .deleteArticle(id)
+  deleteArticle = id => action => {
+    this
+      .props
+      .deleteArticle(id)
+  }
+
+  render() {
+    const {articles} = this.props;
+    const articleTypes = {};
+    articles.forEach(article => {
+      articleTypes[article.type_of_material] = null
+    });
+
+    const options = [];
+
+    for (var key in articleTypes) {
+      if (articleTypes.hasOwnProperty(key)) {
+        options.push({label: key, value: key});
+      }
+    }
+
+    const articleElements = articles.map((article) => {
+      return <div key={article._id} className="ArticleList__item">
+
+        {< Article
+        article = {
+          article
         }
 
-        render() {
-                const {articles} = this.props;
-                const articleTypes = {};
-                articles.forEach(article => {
-                        articleTypes[article.type_of_material] = null
-                });
-
-                const options = [];
-
-                for (var key in articleTypes) {
-                        if (articleTypes.hasOwnProperty(key)) {
-                                options.push({label: key, value: key});
-                        }
-                }
-
-                const articleElements = articles.map((article) => {
-                        return <div key={article._id} className="ArticleList__item">
-
-                                {< Article
-                                article = {
-                                        article
-                                }
-
-                                onDelete = {
-                                        this.deleteArticle(article._id)
-                                }
-
-                                isOpen = {
-                                        article._id === this.props.openId
-                                }
-                                toggleHandler = {
-                                        this
-                                                .props
-                                                .toggleHandler(article._id)
-                                }
-
-                                />}
-                        </div>
-                })
-
-                return (
-                        <div className="ArticleList">
-                                <h2 className="ArticleList__header">Articles</h2>
-                                <div className="ArticleList__select">
-                                        <Select
-                                                value={this.state.selection}
-                                                name="form-field-name"
-                                                options={options}
-                                                onChange={this.selectValue}/>
-                                </div>
-
-                                <div className="ArticleList__body">
-                                        {articleElements}
-                                </div>
-                        </div>
-
-                );
+        onDelete = {
+          this.deleteArticle(article._id)
         }
+
+        isOpen = {
+          article._id === this.props.openId
+        }
+        toggleHandler = {
+          this
+            .props
+            .toggleHandler(article._id)
+        }
+
+        />}
+      </div>
+    })
+
+    return (
+      <div className="ArticleList">
+        <h2 className="ArticleList__header">Articles</h2>
+        <div className="ArticleList__select">
+          <Select
+            value={this.state.selection}
+            name="form-field-name"
+            options={options}
+            onChange={this.selectValue}/>
+        </div>
+
+        <div className="ArticleList__body">
+          {articleElements}
+        </div>
+      </div>
+
+    );
+  }
 
 }
 
-export default connect(null, {deleteArticle, sortArticles, clearSorting})(accordion(ArticleList))
+export default connect(state => ({
+  articles: state.articles
+}), {deleteArticle, sortArticles, clearSorting})(accordion(ArticleList))

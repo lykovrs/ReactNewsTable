@@ -8,9 +8,11 @@ export default(articles = defaultArticles, action) => {
         case DELETE_ARTICLE:
             return articles.filter(article => article._id !== payload.id)
         case SORT_ARTICLES:
-            return articles.filter(article => {
-                if(payload.field === null) return articles;
-                return article.type_of_material === payload.field
+            return articles.map(article => {
+                article.visible = true
+
+                // if(payload.field === null) return articles;
+                // return article.type_of_material === payload.field
             })
     }
 

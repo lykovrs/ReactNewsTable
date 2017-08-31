@@ -21,8 +21,7 @@ class App extends Component {
         </div>
         <div className="App__intro-wrap">
           <div className="App__intro-col">
-
-            <ArticleList articles={articles}/>
+            <ArticleList/>
           </div>
 
           <div className="App__intro-col">
@@ -36,6 +35,4 @@ class App extends Component {
   }
 }
 
-export default connect(state => ({
-  articles: state.articles
-})) (App);
+export default connect(state => ({articles: state.articles}))(App);
