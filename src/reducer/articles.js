@@ -1,4 +1,4 @@
-import {DELETE_ARTICLE, SORT_ARTICLES} from '../constants';
+import {DELETE_ARTICLE, SORT_ARTICLES, CLEAR_SORT} from '../constants';
 import {articles as defaultArticles} from '../data';
 
 export default(articles = defaultArticles, action) => {
@@ -9,12 +9,20 @@ export default(articles = defaultArticles, action) => {
             return articles.filter(article => article._id !== payload.id)
         case SORT_ARTICLES:
             return articles.map(article => {
-                article.visible = true
-
-                // if(payload.field === null) return articles;
-                // return article.type_of_material === payload.field
+                if (article.type_of_material === payload.field) {
+                    article.show = true
+                } else {
+                    article.show = false
+                }
+                return article
             })
-    }
+        case CLEAR_SORT:
+            return articles.map(article => {
+                article.show = true
+                return article
+            })
 
-    return articles
+        default:
+            return articles
+    }
 }
